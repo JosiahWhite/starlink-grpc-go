@@ -1331,6 +1331,7 @@ type DishObstructionStats struct {
 
 	CurrentlyObstructed              bool      `protobuf:"varint,5,opt,name=currently_obstructed,json=currentlyObstructed,proto3" json:"currently_obstructed,omitempty"`
 	FractionObstructed               float32   `protobuf:"fixed32,1,opt,name=fraction_obstructed,json=fractionObstructed,proto3" json:"fraction_obstructed,omitempty"`
+	Last_24HObstructedS              float32   `protobuf:"fixed32,1006,opt,name=last_24h_obstructed_s,json=last24hObstructedS,proto3" json:"last_24h_obstructed_s,omitempty"`
 	ValidS                           float32   `protobuf:"fixed32,4,opt,name=valid_s,json=validS,proto3" json:"valid_s,omitempty"`
 	WedgeFractionObstructed          []float32 `protobuf:"fixed32,2,rep,packed,name=wedge_fraction_obstructed,json=wedgeFractionObstructed,proto3" json:"wedge_fraction_obstructed,omitempty"`
 	WedgeAbsFractionObstructed       []float32 `protobuf:"fixed32,3,rep,packed,name=wedge_abs_fraction_obstructed,json=wedgeAbsFractionObstructed,proto3" json:"wedge_abs_fraction_obstructed,omitempty"`
@@ -1381,6 +1382,13 @@ func (x *DishObstructionStats) GetCurrentlyObstructed() bool {
 func (x *DishObstructionStats) GetFractionObstructed() float32 {
 	if x != nil {
 		return x.FractionObstructed
+	}
+	return 0
+}
+
+func (x *DishObstructionStats) GetLast_24HObstructedS() float32 {
+	if x != nil {
+		return x.Last_24HObstructedS
 	}
 	return 0
 }
